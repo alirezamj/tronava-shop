@@ -1,3 +1,6 @@
 export const showHome = (req, res) => {
-    res.render('home', { title: 'Welcome to Tronava shop'});
+    const registered = req.query.registered === 'true';
+    res.render('home', { title: 'Welcome to Tronava shop',
+        registered
+    });
 };
