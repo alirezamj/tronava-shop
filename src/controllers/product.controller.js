@@ -1,3 +1,4 @@
+import mongoose from 'mongoose';
 import Product from '../models/product.model.js';
 
 export const showProducts = async (req, res) => {
@@ -13,8 +14,14 @@ export const showProducts = async (req, res) => {
 
 
 export const getProductDetails = async (req, res) => {
+    const {id} = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(400).render('404', { message: ' Invalid product ID'});
+    }
     try{
-        const product = await Product.findById(req.params.id);
+        console.log("Looking for product with ID:", id);
+         const product = await Product.findById(id);
 
         if(!product) {
             return res.status(404).render('404', { message: ' Product not found'});

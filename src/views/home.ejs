@@ -21,13 +21,10 @@
     }
 
     /* Navbar */
-    nav {
+    nav, footer {
       background-color: white;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       padding: 10px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
 
     nav h1 {
@@ -87,34 +84,40 @@
       border-radius: 4px;
       margin-bottom: 20px;
     }
+    .hero-banner img {
+      margin-top: 3px;
+  width: 100%;
+  height: 400px;
+  display: block;
+  object-fit: cover;
+}
+
   </style>
 </head>
 <body>
   <!-- Navbar -->
-  <nav>
-    <h1>Tronava-shop</h1>
-    <div>
-      <a href="/">Home</a>
-      <a href="/login">Login</a>
-      <a href="/register">Register</a>
-    </div>
-  </nav>
 
+    <%- include('partials/header') %>
+
+
+    <section class="hero-banner">
+    <img src="/images/banner.png" alt="Digital Tools Banner">
+    </section>
   <!-- Main -->
   <main>
     <% if (registered) { %>
       <div class="success-msg">🎉 Registration successful! Welcome aboard.</div>
     <% } %>
 
-    <h2>Welcome to Tronava-shop</h2>
-    <p>Your gateway to a clean, secure and stylish shopping experience.</p>
+    <h2>خوش آمدید</h2>
+    <p>درگاه ورود شما به تجربه ای امن و راحت در خرید</p>
 
-    <a class="btn" href="/products">Browse Products</a>
+    <a class="btn" href="/products">جست و جوی محصولات</a>
+
+<p>User: <%= user ? user.title : 'No user' %></p>
   </main>
 
   <!-- Footer -->
-  <footer>
-    &copy; <%= new Date().getFullYear() %> Tronava-shop. All rights reserved.
-  </footer>
+  <%- include('partials/footer') %>
 </body>
 </html>

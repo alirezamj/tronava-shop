@@ -98,16 +98,16 @@
 <body>
   <%- include('partials/header') %>
 
-  <h2 class="page-title">Explore Our Products</h2>
+  <h2 class="page-title">جست و جو محصولات</h2>
 
   <div class="product-grid">
     <% products.forEach(product => { %>
       <div class="product-card">
-        <img src="<%= product.imageUrl %>" alt="<%= product.name %>" />
-        <h3><%= product.name %></h3>
+        <img src="<%= product.imageUrl %>" alt="<%= product.title %>" />
+        <h3><%= product.title %></h3>
         <p><%= product.description %></p>
         <div class="price">$<%= product.price %></div>
-        <a href="admin/products/<%= product._id %>" class="btn">View Details</a>
+        <a href="/shop/product-details/<%= product._id %>" class="btn">مشاهده جزئیات</a>
       </div>
     <% }) %>
   </div>

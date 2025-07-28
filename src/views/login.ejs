@@ -52,9 +52,10 @@
     }
 
     label {
-      display: block;
+      display: flex;
       margin-top: 20px;
       color: #555;
+      flex-direction: row-reverse;
     }
 
     input {
@@ -87,6 +88,19 @@
       font-size: 14px;
       color: #777;
     }
+
+    .profile-icon img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.2s ease;
+}
+
+.profile-icon img:hover {
+  transform: scale(1.1);
+}
+
   </style>
 </head>
 <body>
@@ -94,21 +108,25 @@
   <%- include('partials/header') %>
 
   <main>
+    <% if (user) { %>
+  <i class="fas fa-user"></i>
+<% }  %>
+
     <div class="form-box">
-      <h2>Log In</h2>
+      <h2>ورود</h2>
 
       <% if (typeof error !== 'undefined') { %>
         <div class="error-msg"><%= error %></div>
       <% } %>
 
-      <form action="/api/auth/login" method="POST">
-        <label>Email</label>
+      <form class="form-group" action="/api/auth/login" method="POST">
+        <label>ایمیل</label>
         <input type="email" name="email" value="<%= typeof email !== 'undefined' ? email : '' %>" required />
 
-        <label>Password</label>
+        <label>پسورد</label>
         <input type="password" name="password" required />
 
-        <button class="btn" type="submit">Login</button>
+        <button class="btn" type="submit">ورود</button>
       </form>
     </div>
   </main>
