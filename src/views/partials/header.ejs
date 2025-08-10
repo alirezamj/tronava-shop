@@ -1,5 +1,13 @@
 
 
+  <% if (user) { %>
+  <i class="fa fa-user"></i>
+  <a href="/api/auth/logout">خروج</a>
+<% } else { %>
+  <a href="/login">ورود</a>
+<% } %>
+
+
 <nav style="background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.05); padding: 10px 40px;">
   <div style="display: flex; flex-direction: column; align-items: flex-end;">
     <h1 style="color: #2b6cb0; font-size: 22px; margin-bottom: 10px;">Tronava-shop</h1>

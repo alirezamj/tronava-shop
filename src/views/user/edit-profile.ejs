@@ -1,0 +1,14 @@
+<form action="/dashboard/edit" method="post">
+    
+    <input type="text" name="username" placeholder="نام کاربری" value="<%= user.username %>" required>
+    <label>نام کاربری</label>
+         
+    <input type="email" name="email" placeholder="ایمیل" value="<%= user.email %>" required>
+    <label>ایمیل</label>
+        
+    <!-- <input type="password" name="password">
+    <label> پسورد جدید</label> -->
+
+    <button type="submit">ذخیره تغییرات</button>
+
+</form>

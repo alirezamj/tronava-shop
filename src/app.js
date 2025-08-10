@@ -6,10 +6,16 @@ import mainRouter from './routes/main.route.js';
 import productRouter from './routes/product.route.js';
 import authRoutes from './routes/auth.route.js';
 import adminRoutes from './routes/admin.route.js';
+import userRoute from './routes/user.route.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import jwt from 'jsonwebtoken';
 import User from './models/user.model.js';
+import passport from 'passport';
+import session from 'express-session';
+const { default: configurePassport } = await import('./config/passport.js');
+configurePassport(passport);
+
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -37,6 +43,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended:true }));
 app.use(cookieParser());
 app.use(express.json());
+app.use(session({
+      secret: process.env.SESSION_SECRET,
+      resave: false,
+      saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+
+
 
 
 // 🔐 Global user detection middleware
@@ -51,7 +68,9 @@ app.use(async (req, res, next) => {
 
           }
       }
-      res.locals.user = req.user;
+      //Also, make sure you're attaching the user to res.locals:
+      //This makes user available in all EJS templates.
+ res.locals.user = req.user;
   next();
 });
 
@@ -66,6 +85,9 @@ app.use('/products', productRouter);
 app.use('/shop/product-details', productRouter);
 app.use('/api/auth', authRoutes);
 app.use('/', adminRoutes);
+app.use('/', userRoute);
+app.use('/dashboard', userRoute);
+
 
 
 
@@ -77,7 +99,11 @@ app.get('/login', (req, res) => {
       res.render('login');
 });
 
-
+app.post('/login', passport.authenticate('local', {
+      successRedirect: '/',
+      failureRedirect: '/login',
+      failureFlash: true
+}));
 
 
 

@@ -1,0 +1,16 @@
+<%-  include('../partials/header') %>
+
+
+<div class="dashboard">
+    <h1>داشبورد کاربر</h1>
+    <p>سلام: <strong><%= user.username %></strong></p>
+    <p>ایمیل شما: <%= user.email %></p>
+    <p>تاریخ عضویت: <%= user.createdAt.toLocaleDateString('fa-IR') %></p>
+
+
+    <a href="api/auth/logout">خروج</a>
+</div>
+
+
+
+<%- include('../partials/footer') %>
