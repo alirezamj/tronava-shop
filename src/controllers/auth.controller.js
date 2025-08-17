@@ -1,10 +1,10 @@
 import User from "../models/user.model.js";
-import generateToken from "../utils/generateToken.js";
+
 
 
 export const loginUser = async (req, res, next) => {
   const { email, password } = req.body;
-
+try {
   const user = await User.findOne({ email });
   if (!user || !(await user.matchPassword(password))) {
     return res.status(401).render('login', {
@@ -17,19 +17,19 @@ export const loginUser = async (req, res, next) => {
   req.login(user, (err) => {
     if (err) return next(err);
 
-    // 🍪 ذخیره توکن JWT در کوکی (اختیاری)
-    const token = generateToken(user._id);
-    res.cookie('token', token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      maxAge: 24 * 60 * 60 * 1000
-    });
 
-    // ✅ حالا req.user مقداردهی شده و session فعال است
+    if (user.role === 'admin') {
+      return res.redirect('/admin/products');
+    } else {
     return res.redirect('/');
+    }
   });
-};
 
+  } catch (err) {
+  console.error('Login error:', err);
+  next(err);
+  }
+};  
 
 export const registerUser = async (req, res) => {
     const { username, email, password } = req.body;
@@ -52,7 +52,7 @@ export const registerUser = async (req, res) => {
         return next(err);
       }
 
-        const token = generateToken(user._id);
+        // const token = generateToken(user._id);
 
         //Temporary success response
         res.redirect('/?registered=true');

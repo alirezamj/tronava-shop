@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Products | Tronava-shop</title>
-  <style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= category %> products</title>
+      <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
@@ -94,7 +96,7 @@
       color: #777;
     }
 
-    .btn.add-to-cart {
+        .btn.add-to-cart {
   background-color: #f00c73; /* سبز ملایم */
   margin-left: 10px;
   transition: background-color 0.3s ease;
@@ -106,29 +108,28 @@
   </style>
 </head>
 <body>
-  <%- include('partials/header') %>
+<%- include('partials/header') %>
 
-  <h2 class="page-title">جست و جو محصولات</h2>
+        <h1>Products in <%= category %></h1>
+        <div class="product-grid">
+        <% products.forEach( product => { %>
+         <div class="product-card">
+         <img src="<%= product.imageUrl %>" alt="<%= product.title %>" />
+         <h3><%= product.title %></h3>
+         <p><%= product.description %></p>
+         <div class="price">$<%= product.price %></div>
+         <a href="/shop/product-details/<%= product._id %>" class="btn">مشاهده جزئیات</a>
+         <form action="/products/add-to-cart/<%= product._id %>" method="post" style="display:inlile;">
+         <button type="submit" class="btn add-to-cart">افزودن به سبد خرید</button>
+         </form>
+         </div>
 
-  <div class="product-grid">
-    <% products.forEach(product => { %>
-      <div class="product-card">
-        <img src="<%= product.imageUrl %>" alt="<%= product.title %>" />
-        <h3><%= product.title %></h3>
-        <p><%= product.description %></p>
-        <div class="price">$<%= product.price %></div>
-        <a href="/products/<%= product._id %>" class="btn">مشاهده جزئیات</a>
-        <form action="/products/add-to-cart/<%= product._id %>" method="post" style="display:inlile;">
-        <button type="submit" class="btn add-to-cart">افزودن به سبد خرید</button>
-      </form>
-      </div>
+                    
+        <% }) %>
+            
 
+        </div>
 
-    <% }) %>
-  </div>
-
-
-  
-  <%- include('partials/footer') %>
+<%- include('partials/footer') %>
 </body>
 </html>

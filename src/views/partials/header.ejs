@@ -1,12 +1,44 @@
 
 
-  <% if (user) { %>
-  <i class="fa fa-user"></i>
-  <a href="/api/auth/logout">خروج</a>
-<% } else { %>
-  <a href="/login">ورود</a>
-<% } %>
 
+<div class="nav-link">
+<% if (isAuthenticated) { %>
+  <a href="/dashboard" class="dashboard-link">داشبورد</a>
+  <a href="/api/auth/logout" class="dashboard-link">خروج</a>
+<% } else { %>
+  <a href="/login" class="dashboard-link">ورود</a>
+<% } %>
+</div>
+
+<style>
+    .nav-links {
+    display: flex;
+    gap: 10px; /* فاصله بین لینک‌ها */
+    align-items: center;
+    justify-content: flex-end; /* یا center یا space-between بسته به نیازت */
+    padding: 10px;
+  }
+
+  .dashboard-link {
+    color: white;
+    background-color: #007bff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .dashboard-link:hover {
+    background-color: #0056b3;
+  }
+
+    .fa-user {
+    color: #007bff;
+    font-size: 18px;
+    margin-right: 6px;
+  }
+  
+</style>
 
 <nav style="background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.05); padding: 10px 40px;">
   <div style="display: flex; flex-direction: column; align-items: flex-end;">
@@ -15,6 +47,10 @@
       <a href="/" style="color: #333; text-decoration: none;">خانه</a>
       <a href="/login" style="color: #333; text-decoration: none;">ورود</a>
       <a href="/register" style="color: #333; text-decoration: none;">عضویت</a>
+      <a href="/category/electronics">الکترونیک</a>
+      <a href="/category/clothing">پوشاک</a>
+      <a href="/category/home">لوازم خانگی</a>
+      <a href="/category/books">کتاب</a>
     </div>
   </div>
 </nav>

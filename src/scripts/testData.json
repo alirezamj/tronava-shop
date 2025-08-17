@@ -1,0 +1,248 @@
+[
+
+  {
+    "title": "iPhone 14 Pro",
+    "description": "Flagship Apple smartphone with advanced camera and display.",
+    "price": 45000000,
+    "category": "electronics",
+    "imageUrl": "/images/iphone14pro.jpg",
+    "stock": 10
+  },
+  {
+    "title": "Samsung Galaxy S23",
+    "description": "High-performance Android phone with AMOLED display.",
+    "price": 39000000,
+    "category": "electronics",
+    "imageUrl": "/images/galaxyS23.jpg",
+    "stock": 15
+  },
+  {
+    "title": "Sony WH-1000XM4 Headphones",
+    "description": "Noise-cancelling wireless headphones with long battery life.",
+    "price": 8900000,
+    "category": "electronics",
+    "imageUrl": "/images/sonyheadphones.jpg",
+    "stock": 12
+  },
+  {
+    "title": "Dell XPS 13 Laptop",
+    "description": "Compact and powerful ultrabook with Intel i7 processor.",
+    "price": 62000000,
+    "category": "electronics",
+    "imageUrl": "/images/dellxps13.jpg",
+    "stock": 8
+  },
+  {
+    "title": "Apple Watch Series 8",
+    "description": "Smartwatch with health tracking and sleek design.",
+    "price": 14500000,
+    "category": "electronics",
+    "imageUrl": "/images/applewatch8.jpg",
+    "stock": 20
+  },
+  {
+    "title": "Logitech MX Master 3 Mouse",
+    "description": "Ergonomic wireless mouse for productivity.",
+    "price": 1800000,
+    "category": "electronics",
+    "imageUrl": "/images/logitechmx3.jpg",
+    "stock": 30
+  },
+  {
+    "title": "Canon EOS M50 Camera",
+    "description": "Mirrorless camera with 4K video and interchangeable lenses.",
+    "price": 22000000,
+    "category": "electronics",
+    "imageUrl": "/images/canonm50.jpg",
+    "stock": 6
+  },
+  {
+    "title": "JBL Flip 6 Speaker",
+    "description": "Portable Bluetooth speaker with deep bass.",
+    "price": 3200000,
+    "category": "electronics",
+    "imageUrl": "/images/jblflip6.jpg",
+    "stock": 18
+  },
+  {
+    "title": "Kindle Paperwhite",
+    "description": "E-reader with glare-free display and long battery life.",
+    "price": 4200000,
+    "category": "electronics",
+    "imageUrl": "/images/kindle.jpg",
+    "stock": 25
+  },
+  {
+    "title": "Xiaomi Mi Band 7",
+    "description": "Affordable fitness tracker with heart rate monitor.",
+    "price": 950000,
+    "category": "electronics",
+    "imageUrl": "/images/miband7.jpg",
+    "stock": 40
+  },
+
+ 
+  {
+    "title": "Men's Cotton T-Shirt",
+    "description": "Soft and breathable cotton t-shirt for everyday wear.",
+    "price": 350000,
+    "category": "clothing",
+    "imageUrl": "/images/menshirt.jpg",
+    "stock": 25
+  },
+  {
+    "title": "Women's Summer Dress",
+    "description": "Lightweight floral dress perfect for warm weather.",
+    "price": 780000,
+    "category": "clothing",
+    "imageUrl": "/images/summerdress.jpg",
+    "stock": 18
+  },
+  {
+    "title": "Unisex Hoodie",
+    "description": "Comfortable hoodie with front pocket and drawstring.",
+    "price": 650000,
+    "category": "clothing",
+    "imageUrl": "/images/hoodie.jpg",
+    "stock": 22
+  },
+  {
+    "title": "Men's Jeans",
+    "description": "Classic straight-fit denim jeans.",
+    "price": 980000,
+    "category": "clothing",
+    "imageUrl": "/images/mensjeans.jpg",
+    "stock": 30
+  },
+  {
+    "title": "Women's Blouse",
+    "description": "Elegant blouse suitable for office or casual wear.",
+    "price": 620000,
+    "category": "clothing",
+    "imageUrl": "/images/blouse.jpg",
+    "stock": 15
+  },
+  {
+    "title": "Kids' Pajama Set",
+    "description": "Soft cotton pajamas with fun prints.",
+    "price": 450000,
+    "category": "clothing",
+    "imageUrl": "/images/kidspajamas.jpg",
+    "stock": 20
+  },
+  {
+    "title": "Men's Leather Belt",
+    "description": "Genuine leather belt with metal buckle.",
+    "price": 320000,
+    "category": "clothing",
+    "imageUrl": "/images/leatherbelt.jpg",
+    "stock": 35
+  },
+  {
+    "title": "Women's Scarf",
+    "description": "Stylish scarf made of soft wool.",
+    "price": 280000,
+    "category": "clothing",
+    "imageUrl": "/images/scarf.jpg",
+    "stock": 40
+  },
+  {
+    "title": "Men's Sneakers",
+    "description": "Comfortable sneakers for daily use.",
+    "price": 1200000,
+    "category": "clothing",
+    "imageUrl": "/images/sneakers.jpg",
+    "stock": 12
+  },
+  {
+    "title": "Women's Handbag",
+    "description": "Elegant handbag with multiple compartments.",
+    "price": 2400000,
+    "category": "clothing",
+    "imageUrl": "/images/handbag.jpg",
+    "stock": 10
+  },
+
+
+  {
+    "title": "Bosch Vacuum Cleaner",
+    "description": "High suction power vacuum with HEPA filter.",
+    "price": 5200000,
+    "category": "home",
+    "imageUrl": "/images/vacuum.jpg",
+    "stock": 5
+  },
+  {
+    "title": "Philips Air Fryer",
+    "description": "Healthy cooking with little to no oil.",
+    "price": 6800000,
+    "category": "home",
+    "imageUrl": "/images/airfryer.jpg",
+    "stock": 7
+  },
+  {
+    "title": "LG Washing Machine",
+    "description": "Front-load washer with smart inverter technology.",
+    "price": 14500000,
+    "category": "home",
+    "imageUrl": "/images/washingmachine.jpg",
+    "stock": 3
+  },
+  {
+    "title": "Panasonic Microwave Oven",
+    "description": "Compact microwave with quick heating features.",
+    "price": 4200000,
+    "category": "home",
+    "imageUrl": "/images/microwave.jpg",
+    "stock": 9
+  },
+  {
+    "title": "Samsung Refrigerator",
+    "description": "Double-door fridge with digital inverter.",
+    "price": 28000000,
+    "category": "home",
+    "imageUrl": "/images/fridge.jpg",
+    "stock": 2
+  },
+  {
+    "title": "Tefal Steam Iron",
+    "description": "Fast heat-up iron with anti-drip system.",
+    "price": 1100000,
+    "category": "home",
+    "imageUrl": "/images/iron.jpg",
+    "stock": 14
+  },
+  {
+    "title": "Dyson Air Purifier",
+    "description": "Smart air purifier with real-time monitoring.",
+    "price": 12500000,
+    "category": "home",
+    "imageUrl": "/images/airpurifier.jpg",
+    "stock": 6
+  },
+  {
+    "title": "IKEA Table Lamp",
+    "description": "Minimalist lamp for cozy lighting.",
+    "price": 850000,
+    "category": "home",
+    "imageUrl": "/images/tablelamp.jpg",
+    "stock": 20
+  },
+  {
+    "title": "Black+Decker Blender",
+    "description": "Multi-speed blender for smoothies and sauces.",
+    "price": 2300000,
+    "category": "home",
+    "imageUrl": "/images/blender.jpg",
+    "stock": 11
+  },
+  {
+    "title": "Xiaomi Smart Plug",
+    "description": "Wi-Fi enabled smart plug with app control.",
+    "price": 480000,
+    "category": "home",
+    "imageUrl": "/images/smartplug.jpg",
+    "stock": 25
+  }
+]
+

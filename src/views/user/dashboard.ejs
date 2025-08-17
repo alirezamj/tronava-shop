@@ -1,4 +1,18 @@
-<%-  include('../partials/header') %>
+<!-- <%-  include('../partials/header') %> -->
+
+<nav style="background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.05); padding: 10px 40px;">
+  <div style="display: flex; flex-direction: column; align-items: flex-end;">
+    <h1  style="color: #2b6cb0; font-size: 22px; margin-bottom: 10px;">Tronava-shop</h1>
+    <div style="display: flex; gap: 20px;">
+      <a href="/" style="color: #333; text-decoration: none;">خانه</a>
+      <a href="/category/electronics">الکترونیک</a>
+      <a href="/category/clothing">پوشاک</a>
+      <a href="/category/home">لوازم خانگی</a>
+      <a href="/category/books">کتاب</a>
+    </div>
+  </div>
+</nav>
+
 
 
 <div class="dashboard">
@@ -6,11 +20,26 @@
     <p>سلام: <strong><%= user.username %></strong></p>
     <p>ایمیل شما: <%= user.email %></p>
     <p>تاریخ عضویت: <%= user.createdAt.toLocaleDateString('fa-IR') %></p>
+    <a href="/products/cart" class="dashboard-link2">سبد خرید</a>
 
 
-    <a href="api/auth/logout">خروج</a>
+    <a href="api/auth/logout" class="dashboard-link2">خروج</a>
 </div>
 
+<style>
+  .dashboard-link2 {
+    color: white;
+    background-color: #ed6d0b;
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .dashboard-link2:hover {
+    background-color: #94550d;
+  }
+</style>
 
 
 <%- include('../partials/footer') %>

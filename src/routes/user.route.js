@@ -15,6 +15,7 @@ router.get('/', ensureAuthenticate, (req, res) => {
     });
 });
 
+
 router.get('/edit', ensureAuthenticate, renderEditForm);
 
 router.post('/edit', ensureAuthenticate, updateProfile);

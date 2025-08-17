@@ -1,44 +1,38 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import { readFile } from 'fs/promises';
+import path from 'path';
 import Product from '../models/product.model.js';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 dotenv.config();
-console.log('🔍 MONGO_URI:', process.env.MONGO_URI);
-
 
 const seedProducts = async () => {
-    try{
-        await mongoose.connect(process.env.MONGO_URI);
-        console.log('🛜 Connected to MongoDB');
+  try {
+    console.log('🔍 Connecting to MongoDB...');
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log('🛜 Connected to MongoDB');
 
+    console.log('🧹 Clearing existing products...');
+    await Product.deleteMany();
 
-        await Product.deleteMany();
-        const products = await Product.insertMany([
-         {
-      title: 'Wireless Mouse',
-      description: 'Smooth and responsive ergonomic mouse',
-      price: 29.99,
-      category: 'Electronics',
-      imageUrl: '/images/mouse.jpg',
-      stock: 50
-    },
-    {
-      title: 'Canvas Backpack',
-      description: 'Stylish and durable, perfect for everyday carry',
-      price: 44.95,
-      category: 'Fashion',
-      imageUrl: '/images/backpack.jpg',
-      stock: 30
-    }
-    ]);
-    console.log('✅ Seeded products');
+    const filePath = path.resolve(__dirname, 'testData.json');
+    const data = await readFile(filePath, 'utf-8');
+    const products = JSON.parse(data);
+
+    console.log(`📦 Seeding ${products.length} products...`);
+    await Product.insertMany(products);
+
+    console.log('✅ Products seeded successfully');
+  } catch (err) {
+    console.error('❌ Seeding failed:', err.message);
+  } finally {
     await mongoose.disconnect();
     console.log('🔌 Disconnected from MongoDB');
-}catch (err) {
-    console.error('❌ Seeding failed:', err.message);
-
-}
-
+  }
 };
 
 seedProducts();

@@ -46,7 +46,8 @@ app.use(express.json());
 app.use(session({
       secret: process.env.SESSION_SECRET,
       resave: false,
-      saveUninitialized: false
+      saveUninitialized: false,
+      cookie: { maxAge: 1000 * 60 * 60 } 
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -75,14 +76,19 @@ app.use(async (req, res, next) => {
 });
 
 
+app.use((req, res, next) => {
+  res.locals.isAuthenticated = req.isAuthenticated();
+  res.locals.user = req.user;
+  next();
+});
 
-//This lets Express read form data like req.body.username, req.body.email, etc.
+
 
 
 // 📦 Your routes come after this
 app.use('/', mainRouter);
 app.use('/products', productRouter);
-app.use('/shop/product-details', productRouter);
+// app.use('/shop/product-details', productRouter);
 app.use('/api/auth', authRoutes);
 app.use('/', adminRoutes);
 app.use('/', userRoute);
@@ -90,20 +96,15 @@ app.use('/dashboard', userRoute);
 
 
 
-
-
 app.get('/register', (req, res) => {
       res.render('register');
 });
+
 app.get('/login', (req, res) => {
       res.render('login');
 });
 
-app.post('/login', passport.authenticate('local', {
-      successRedirect: '/',
-      failureRedirect: '/login',
-      failureFlash: true
-}));
+
 
 
 
@@ -111,6 +112,6 @@ app.post('/login', passport.authenticate('local', {
 
 //Start server
 app.listen(PORT, () => {
-      console.log(`🚀 Tronava Shop server is running on http://localhost:${PORT}`);
+      console.log(`Tronava Shop server is running on http://localhost:${PORT}`);
 
 })
