@@ -20,14 +20,18 @@ export const getProductDetails = async (req, res) => {
         return res.status(400).render('404', { message: ' Invalid product ID'});
     }
     try{
-        console.log("Looking for product with ID:", id);
          const product = await Product.findById(id);
 
         if(!product) {
             return res.status(404).render('404', { message: ' Product not found'});
         }
 
-        res.render('shop/product-details', { product });
+       
+
+        res.render('shop/product-details', {
+             product: product,
+             isLoggedIn: req.isAuthenticated()
+          });
     }catch (err) {
         console.error('Product details error:', err);
         res.status(500).render('500', { message: 'Server error'});

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,7 @@
   }
 
   .cart-summary {
-    background-color: #f8f9fa;
+    background-color: #fff;
     padding: 12px 20px;
     border-radius: 8px;
     margin-bottom: 20px;
@@ -21,6 +21,7 @@
     color: #444;
     display: flex;
     justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   }
 
   .cart-summary span {
@@ -69,26 +70,37 @@
   <%-  include('partials/header') %>
 
 
-
-
-
-
 <h1 class="cart-title">سبد خرید</h1>
-
+<% if (cart.totalQty > 0) { %>
 <div class="cart-summary">
   <p>تعداد کل: <span><%= cart.totalQty %></span></p>
   <p>مجموع قیمت: <span><%= cart.totalPrice.toLocaleString() %> تومان</span></p>
 </div>
 
 <ul class="cart-items">
-  <% if (cart.items && Object.keys(cart.items).length > 0) { %>
-    <% Object.values(cart.items).forEach(item => { %>
-      <li class="cart-item">
-        <strong><%= item.product.title %></strong>
-        <div class="item-details">
+      <% Object.values(cart.items).forEach(item => { %>
+       <li class="cart-item">
+         <strong><%= item.product.title %></strong>
+         <div class="item-details">
           <span>تعداد: <%= item.quantity %></span>
           <span>قیمت: <%= item.product.price.toLocaleString() %> تومان</span>
-        </div>
+         </div>
+        <!-- buttons -->
+         <div style="margin-top: 10 px; display: flex; gap: 10px;">
+          <!-- add number -->
+           <form action="/products/add-to-cart/<%= item.product._id %>" method="POST">
+            <button type="submit" style="padding: 6 px 12 px; background-color: #28a745; color: white; border-radius: 4px;">
+              اضافه
+            </button>
+           </form>
+
+           <!-- delete product -->
+            <form action="/products/remove-from-cart/<%= item.product._id %>" method="POST">
+              <button type="submit" style="padding: 6px 12px; background-color: #dc3545; color: white; border: none; border-radius: 4px;">
+            حذف
+            </button>
+          </form>
+         </div>
       </li>
     <% }); %>
   <% } else { %>

@@ -13,6 +13,7 @@ import jwt from 'jsonwebtoken';
 import User from './models/user.model.js';
 import passport from 'passport';
 import session from 'express-session';
+import syncCartFromDB  from './middleware/syncCartFromDB.js';
 const { default: configurePassport } = await import('./config/passport.js');
 configurePassport(passport);
 
@@ -86,13 +87,14 @@ app.use((req, res, next) => {
 
 
 // 📦 Your routes come after this
+app.use(syncCartFromDB);
 app.use('/', mainRouter);
 app.use('/products', productRouter);
-// app.use('/shop/product-details', productRouter);
 app.use('/api/auth', authRoutes);
 app.use('/', adminRoutes);
 app.use('/', userRoute);
 app.use('/dashboard', userRoute);
+
 
 
 
